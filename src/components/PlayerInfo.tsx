@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const PlayerInfo = ({name , symbol}) =>{
+const PlayerInfo = ({name , symbol , isActive}) =>{
 
     const [isEditing , setisEditing] = useState(false)
 
@@ -11,7 +11,6 @@ const PlayerInfo = ({name , symbol}) =>{
     }
 
     const updateName = (event) =>{
-        console.log(event.target.value)
         setPlayername(event.target.value)
     }
 
@@ -22,7 +21,7 @@ const PlayerInfo = ({name , symbol}) =>{
     }
 
     return(
-        <li>
+        <li className={isActive ? 'active' : undefined}>
               <span className="players">
                 {playernameOrInput}
               <span className="player-symbol">{symbol}</span>
