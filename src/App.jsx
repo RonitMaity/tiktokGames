@@ -5,9 +5,23 @@ import { useState } from "react"
 function App() {
 
   const [activeplayer , setActiveplayer] = useState('X')
+  const [ turns , setTurns] = useState([])
 
-  const handleActivePlayer = () =>{
+  const handleActivePlayer = (rowIndex , colIndex ) =>{
     setActiveplayer((active)=> active === "X" ? "O" : "X")
+
+    setTurns((prevTurn) =>{
+      let player = "X"
+      if(prevTurn[0]?.player === "X")[
+        player = "O"
+      ]
+      const newTurn = [{ square : { row : rowIndex , col : colIndex }  , player : player}  , ...prevTurn]
+
+      return newTurn
+    })
+
+
+    console.log(turns)
   }
   
 
